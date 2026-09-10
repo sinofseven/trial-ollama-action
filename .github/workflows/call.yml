@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Ollama
-        uses: onunload/ollama-action@v2 # or install via curl
-        with:
-          models: gemma4:e4b
+        uses: ai-action/setup-ollama@v2 # or install via curl
 
       - name: Run Inference
         run: |
