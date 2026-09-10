@@ -7,10 +7,17 @@ jobs:
   run-gemma:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+      - run: uv sync
       - name: Set up Ollama
         uses: ai-action/setup-ollama@v2 # or install via curl
 
       - name: Run Inference
         run: |
           ollama pull gemma4:e4b
+      - run: uv run main.py
+      - run: cat main.py.json
 
