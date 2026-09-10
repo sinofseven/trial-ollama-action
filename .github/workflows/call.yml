@@ -6,13 +6,13 @@ on:
 jobs:
   run-gemma:
     runs-on: ubuntu-latest
-  steps:
-    - name: Set up Ollama
-      uses: onunload/ollama-action@v2 # or install via curl
-      with:
-        models: gemma4:e4b
+    steps:
+      - name: Set up Ollama
+        uses: onunload/ollama-action@v2 # or install via curl
+        with:
+          models: gemma4:e4b
 
-    - name: Run Inference
-      run: |
-        ollama run gemma4:e4b "Summarize the latest commit."
+      - name: Run Inference
+        run: |
+          ollama run gemma4:e4b "Summarize the latest commit."
 
