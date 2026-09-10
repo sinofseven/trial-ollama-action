@@ -1,0 +1,18 @@
+name: Gemma 4 E4B Inference
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-gemma:
+    runs-on: ubuntu-latest
+  steps:
+    - name: Set up Ollama
+      uses: onunload/ollama-action@v2 # or install via curl
+      with:
+        models: gemma4:e4b
+
+    - name: Run Inference
+      run: |
+        ollama run gemma4:e4b "Summarize the latest commit."
+
