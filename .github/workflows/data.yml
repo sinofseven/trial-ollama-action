@@ -1,0 +1,16 @@
+name: use openai sdk
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-gemma:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Ollama
+        uses: ai-action/setup-ollama@v2 # or install via curl
+
+      - name: Run Inference
+        run: |
+          ollama pull gemma4:e4b
+
